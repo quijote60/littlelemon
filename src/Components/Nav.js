@@ -1,18 +1,31 @@
 import React from 'react'
+import Navigation from './Navigation'
+import { useState} from 'react';
+import Hamburger from "../assets/hamburger.png";
+import Close from "../assets/close.png";
+
 
 
 const Nav = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  function handleToggle() {
+    setNavbarOpen(!navbarOpen);
+  }
   return (
-    <nav className='navbar background'>   
-      <img src='/Logo.svg'></img>
-      <ul className='nav-list'>
-  <li><a href="#home">Home</a></li>
-  <li><a href="#news">About</a></li>
-  <li><a href="#contact">Menu</a></li>
-  <li><a href="#reservations">Reservations</a></li>
-  <li><a href="#orderOnline">Order Online</a></li>
-  <li><a href="#login">Login</a></li>
-</ul>
+    <nav>
+      <nav className="burger">
+        <img
+          src={require("../assets/Logo.svg")}
+          alt="Little Lemon logo"
+          className="nav-image"
+        ></img>
+
+        <button className="burger-icon" onClick={handleToggle}>
+        <img src={navbarOpen ? Close : Hamburger} alt="Navigation Bar" />
+        </button>
+      </nav>
+      <Navigation device="desktop" />
+      {navbarOpen ? <Navigation device="mobile" /> : ""}
     </nav>
   )
 }
