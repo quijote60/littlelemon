@@ -270,13 +270,13 @@ Link:link {
   max-height: 18rem;
   position: relative;
   top: 4rem;
-  left: 2rem;
+  left: 1rem;
 }
 
 .double-image > img {
   width: 60%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;  
 }
 
 .about-1 {
@@ -288,7 +288,7 @@ Link:link {
 .about-2 {
   position: absolute;
   top: -3.5rem;
-  left: 5rem;
+  left: 6rem;
 }
 
 /* FOOTER STYLING */
