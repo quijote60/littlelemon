@@ -7,15 +7,14 @@ import Heading from './Components/Heading';
 import Highlights from './Components/Highlights';
 import Testimonials from './Components/Testimonials';
 import About from './Components/About';
+import { BookingForm } from './Components/BookingForm';
 
 function App() {
   return (
     <>
     <Nav/>
    <Heading/>
-   <Highlights/>
-   <Testimonials/>
-   <About/>
+   <Routing/>
     <Footer/>
     </>
   );
