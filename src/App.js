@@ -13,7 +13,7 @@ function App() {
   return (
     <>
     <Nav/>
-   <Heading/>
+  
    <Routing/>
     <Footer/>
     </>
