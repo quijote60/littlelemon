@@ -12,10 +12,12 @@ import { BookingForm } from './Components/BookingForm';
 function App() {
   return (
     <>
+    
     <Nav/>
   
    <Routing/>
     <Footer/>
+    
     </>
   );
 }
