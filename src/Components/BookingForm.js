@@ -5,7 +5,7 @@ export const BookingForm = ({ dispatch, state }) => {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("17:00");
     const [guest, setGuest] = useState("");
-    const [occasion, setOccassion] = useState("")
+    const [occasion, setOccasion] = useState("")
     //const [finalTime, setFinalTime] = useState(
       //  props.availableTimes.map((times, i) => <option key={i}>{times}</option>)
     //);
@@ -30,6 +30,12 @@ export const BookingForm = ({ dispatch, state }) => {
             navigate("/confirmation", { state: reservation });
         }
       };
+      const [guestsError, setGuestsError] = useState(false);
+      const handleGuestsChange = (e) => {
+        const value = e.target.value;
+        setGuestsError(value > 10 || value < 1);
+        setGuest(value);
+      };
   return (
     <>
     <form className="reservation-form" onSubmit={handleSubmit}>
@@ -41,13 +47,14 @@ export const BookingForm = ({ dispatch, state }) => {
           required
           value={date}
           onChange={handleDateChange}
+          aria-label="Enter date mm/dd/yyyy"
         ></input>
       </div>
       <div>
         <label htmlFor="time">Select Time</label> <br></br>
         <select id="time" value={time} required onChange={(e) => {
           setTime(e.target.value);
-        }}>
+        }} aria-label="Select time HH:MM">
          {state?.availableTimes?.map((time) => (
           <option key={time} value={time} aria-label={time}>
             {time}
@@ -57,11 +64,11 @@ export const BookingForm = ({ dispatch, state }) => {
       </div>
         <div>
         <label htmlFor="guests" >Number of guests</label> <br></br>
-        <input type="number" placeholder="1" min="1" max="10" id="guests" value={guest} onChange={(e) => setGuest(e.target.value)}/><br/>
+        <input type="number" className={guestsError ? "input-error" : ""} placeholder="1" min="1" max="10" id="guests" value={guest} onChange={handleGuestsChange} aria-label="Enter number of guests"/><br/>
         </div>
         <div>
-        <label htmlFor="occassion" >Occasion</label> <br></br>
-        <select id="occasion" value={occasion} onChange={(e) => setOccassion(e.target.value)}>
+        <label htmlFor="occasion" >Occasion</label> <br></br>
+        <select id="occasion" value={occasion} required onChange={(e) => setOccasion(e.target.value)} aria-label="Select an Occasion">
             <option>None</option>
             <option>Birthday</option>
             <option>Anniversary</option>
