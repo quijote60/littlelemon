@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import { BookingPage } from "./pages/BookingPage";
 import ConfirmedBooking from "./ConfirmedBooking";
+import About from "./About";
+import { Order } from "./pages/Order";
 
 
 export default function Routing() {
@@ -10,6 +12,8 @@ export default function Routing() {
       <Route path="/" element={<HomePage />} />
       <Route path="/reservations" element={<BookingPage />} />
       <Route path="/confirmation" element={<ConfirmedBooking />} /> 
+      <Route path="/about" element={<About />} />
+      <Route path="/order" element={<Order />} />
 {/* 
       <Route path="/about" element={<About />} />
 
