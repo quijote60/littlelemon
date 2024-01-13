@@ -23,7 +23,7 @@ export default function Navigation(props) {
       </Link>
       <a
         className="hover-effect"
-        href={require("../assets/menu.webp")}
+        href={require("../assets/menu.jpg")}
         target="_blank"
         rel="noreferrer"
       >
